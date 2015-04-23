@@ -8,7 +8,7 @@ USING_3G="no"   # suponemos 3G inactivo al arranque
 while sleep $TIME
 do
         if [ "$USING_3G" = "yes" ]; then
-		if [ "`ip r list | grep default | awk '{print $5}'`" = "wlan0" ]; then
+		if [ "`ip r list | grep default | awk '{print $5}'`" = "eth0" ]; then
 			ip r delete default via 192.168.159.10 dev eth0
 			ip r add default via 192.168.43.1 dev wlan0
                 fi
